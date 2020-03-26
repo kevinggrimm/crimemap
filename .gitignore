@@ -1,3 +1,4 @@
 dbconfig.py
 mysql_troubleshooting.html
 notes.html
+*.pyc
