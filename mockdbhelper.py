@@ -3,6 +3,9 @@ class MockDBHelper:
 	def connect(self, database="crimemap"):
 		pass 
 
+	def add_crime(self, category, date, longitude, latitude, description):
+		pass
+
 	def get_all_inputs(self):
 		return []
 
