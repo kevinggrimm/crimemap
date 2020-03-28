@@ -1,6 +1,7 @@
 from flask import Flask
 from flask import render_template
 from flask import request
+import json
 
 import dbconfig
 if dbconfig.test:
@@ -13,12 +14,9 @@ DB = DBHelper()
 
 @app.route("/")
 def home(): 
-	try: 
-		data = DB.get_all_inputs()
-	except Exception as e:
-		print(e)
-		data = ''
-	return render_template("home.html", data=data)
+	crimes = DB.get_all_crimes()
+	crimes = json.dumps(crimes)
+	return render_template("home.html", crimes=crimes)
 
 @app.route("/add", methods=["POST"])
 def add():
@@ -47,10 +45,6 @@ def submitcrime():
 	description = request.form.get("description")
 	DB.add_crime(category, date, latitude, longitude, description)
 	return home()
-
-
-
-
 
 
 if __name__ == "__main__":

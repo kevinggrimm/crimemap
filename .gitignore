@@ -2,6 +2,7 @@ dbconfig.py
 mysql_troubleshooting.html
 notes.html
 css_notes.html
+database_notes.html
 flask_notes.html
 javascript_notes.html
 web_server_config.txt
