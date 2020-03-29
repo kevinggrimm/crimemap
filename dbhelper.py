@@ -33,7 +33,7 @@ class DBHelper:
 				named_crime = {
 					'latitude': crime[0],
 					'longitude': crime[1],
-					'date': datetimej.datetime.strftime(crime[2], '%Y-%m-%d')
+					'date': datetime.datetime.strftime(crime[2], '%Y-%m-%d'),
 					'category': crime[3],
 					'description': crime[4]
 				}
@@ -72,7 +72,7 @@ class DBHelper:
 			query = "INSERT INTO crimes (category, date, latitude, longitude, description) \
 				VALUES (%s, %s, %s, %s, %s)"
 			with connection.cursor() as cursor:
-				connection.execute(query, (category, date, latitude, longitude, description))
+				cursor.execute(query, (category, date, latitude, longitude, description))
 				connection.commit()
 		except Exception as e:
 			print(str(e))
